@@ -1,0 +1,66 @@
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Expo & React Native
+.expo/
+.expo-shared/
+dist/
+web-build/
+expo-env.d.ts
+build/
+
+# Native builds
+/ios
+/android
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# Debug logs
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+pnpm-debug.*
+
+# Package manager lock files (optional - uncomment if you want to track)
+# yarn.lock
+# pnpm-lock.yaml
+# package-lock.json
+
+# Environment variables
+.env
+.env*.local
+.env.*.local
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+*.pem
+
+# TypeScript
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# Cache & temp
+.cache/
+.turbo/
+*.log
+tmp/
+temp/
