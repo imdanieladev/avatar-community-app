@@ -1,17 +1,22 @@
 import { colors } from "@/constants";
+import { Post } from "@/types";
 import { Ionicons, MaterialCommunityIcons, Octicons } from "@expo/vector-icons";
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
-interface FeedItemProps {}
+interface FeedItemProps {
+  post: Post;
+}
 
-function FeedItem({}: FeedItemProps) {
+function FeedItem({ post }: FeedItemProps) {
   const isLiked = true;
   return (
     <View style={Styles.container}>
       <View style={Styles.contentContainer}>
-        <Text style={Styles.title}>Post Title</Text>
-        <Text style={Styles.description}>Post Content</Text>
+        <Text style={Styles.title}>{post.title}</Text>
+        <Text numberOfLines={3} style={Styles.description}>
+          {post.description}
+        </Text>
       </View>
       <View style={Styles.menuContainer}>
         <Pressable style={Styles.menu}>
