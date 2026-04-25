@@ -24,6 +24,22 @@ export default function AuthLayout() {
           ),
         }}
       />
+      <Stack.Screen
+        name="login"
+        options={{
+          title: "Email Login",
+          headerShown: true,
+          headerBackButtonDisplayMode: "minimal",
+        }}
+      />
+      <Stack.Screen
+        name="signup"
+        options={{
+          title: "Sign up",
+          headerShown: true,
+          headerBackButtonDisplayMode: "minimal",
+        }}
+      />
     </Stack>
   );
 }

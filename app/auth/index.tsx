@@ -1,5 +1,5 @@
 import CustomButton from "@/components/CustomButton";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import { Image, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -13,8 +13,11 @@ export default function AuthScreen() {
         />
       </View>
       <View style={styles.buttonContainer}>
-        <CustomButton label="Email Login" />
-        <Link href="/" style={styles.signupText}>
+        <CustomButton
+          label="Email Login"
+          onPress={() => router.push("/auth/login")}
+        />
+        <Link href="/auth/signup" style={styles.signupText}>
           Countinue with email
         </Link>
       </View>
@@ -33,7 +36,7 @@ const styles = StyleSheet.create({
   imageContainer: {
     justifyContent: "center",
     alignItems: "center",
-    flex: 1,
+    flex: 2,
   },
   signupText: {
     textAlign: "center",
