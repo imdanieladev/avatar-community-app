@@ -33,10 +33,10 @@ yarn-debug.*
 yarn-error.*
 pnpm-debug.*
 
-# Package manager lock files (optional - uncomment if you want to track)
-# yarn.lock
-# pnpm-lock.yaml
-# package-lock.json
+# Package manager lock files
+package-lock.json
+pnpm-lock.yaml
+# yarn.lock - tracked (required for Yarn)
 
 # Environment variables
 .env
@@ -48,6 +48,9 @@ pnpm-debug.*
 .idea/
 *.swp
 *.swo
+
+# Images
+assets/images/
 *.sublime-project
 *.sublime-workspace
 .DS_Store

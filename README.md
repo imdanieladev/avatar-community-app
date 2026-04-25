@@ -47,18 +47,30 @@ A mobile community application built with React Native (Expo), where users can c
 
 ## ⚠️ Assets Notice
 
-Some avatar image assets used in this project are excluded from the repository due to copyright restrictions.
-Only for local development and educational purposes.
+Avatar image assets are excluded from the repository due to copyright restrictions.
+For local development setup, add your custom images to the `assets/images/` directory.
 
 ---
 
-## ⚙️ Installation
+## 📋 Prerequisites
 
-```bash id="kq8m2v"
-git clone https://github.com/your-username/avatar-community-app.git
-cd avatar-community-app
-npm install
-npx expo start
+- Node.js (v18+)
+- Yarn 4.0+
+- iOS Simulator (macOS) or Android Emulator
+
+## ⚙️ Installation & Running
+
+```bash
+# Install dependencies
+yarn install
+
+# Start development server
+yarn start
+
+# Run on specific platform
+yarn ios        # iOS Simulator
+yarn android    # Android Emulator
+yarn web        # Web Browser
 ```
 
 ---
