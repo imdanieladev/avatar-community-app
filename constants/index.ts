@@ -8,6 +8,8 @@ const colors = {
   GRAY_500: "#6B7280",
   GRAY_600: "#4B5563",
   GRAY_700: "#374151",
+  RED_500: "#FF5F5F",
+  RED_100: "#FFDFDF",
 };
 
 export { colors };

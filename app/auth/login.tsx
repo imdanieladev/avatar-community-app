@@ -1,16 +1,37 @@
+import EmailInput from "@/components/EmailInput";
 import FixedBottomCTA from "@/components/FixedBottomCTA";
-import InputField from "@/components/InputField";
+import PasswordInput from "@/components/PasswordInput";
+import { FormProvider, useForm } from "react-hook-form";
 import { StyleSheet, View } from "react-native";
 
+type FormValues = {
+  email: string;
+  password: string;
+};
+
 export default function LoginScreen() {
+  const loginForm = useForm<FormValues>({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+
+  const onsubmit = (formValues: FormValues) => {
+    console.log("formValues: ", formValues);
+  };
+
   return (
-    <>
+    <FormProvider {...loginForm}>
       <View style={styles.container}>
-        <InputField label="Email" placeholder="Enter your email" />
-        <InputField label="Password" placeholder="Enter your password" />
+        <EmailInput />
+        <PasswordInput />
       </View>
-      <FixedBottomCTA label="Login" onPress={() => {}} />
-    </>
+      <FixedBottomCTA
+        label="Login"
+        onPress={loginForm.handleSubmit(onsubmit)}
+      />
+    </FormProvider>
   );
 }
 
