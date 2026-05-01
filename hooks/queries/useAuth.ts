@@ -26,11 +26,7 @@ function useLogin() {
     onSuccess: async ({ accessToken }) => {
       setHeader("Authorization", `Bearer ${accessToken}`);
       await saveSecureStore("accessToken", accessToken);
-
-      const me = await getMe();
-
-      queryClient.setQueryData(["auth", "getMe"], me);
-
+      queryClient.fetchQuery({ queryKey: ["auth", "getMe"] });
       router.replace("/");
     },
     onError: () => {
@@ -54,12 +50,20 @@ function useAuth() {
   const loginMutation = useLogin();
   const signupMutation = useSignup();
 
+  const logout = () => {
+    removeHeader("Authorization");
+    deleteSecureStore("accessToken");
+    queryClient.resetQueries({ queryKey: ["auth"] });
+  };
+
   return {
     auth: {
       id: data?.id || "",
+      nickname: data?.nickname || "",
     },
     loginMutation,
     signupMutation,
+    logout,
   };
 }
 
