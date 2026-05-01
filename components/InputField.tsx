@@ -25,6 +25,7 @@ function InputField(
         style={[
           styles.container,
           styles[variant],
+          props.multiline && styles.mulitiLine,
           Boolean(error) && styles.inputError,
         ]}
       >
@@ -75,6 +76,11 @@ const styles = StyleSheet.create({
   },
   inputError: {
     backgroundColor: colors.RED_100,
+  },
+  mulitiLine: {
+    alignItems: "flex-start",
+    paddingVertical: 10,
+    height: 200,
   },
 });
 

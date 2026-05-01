@@ -10,7 +10,7 @@ import {
 interface CustomButtonProps extends pressableProps {
   label: string;
   size?: "medium" | "large";
-  variant?: "filled";
+  variant?: "standard" | "filled";
 }
 function CustomButton({
   label,
@@ -51,6 +51,11 @@ const styles = StyleSheet.create({
   },
   pressed: {
     opacity: 0.8,
+  },
+  standard: {
+    fontSize: 14,
+    fontWeight: "bold",
+    color: colors.ORANGE_600,
   },
 });
 
