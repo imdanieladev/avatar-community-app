@@ -13,6 +13,9 @@ function useCreatePost() {
         queryKey: [queryKeys.POST, queryKeys.GET_POSTS],
       });
     },
+    onError: (error) => {
+      console.log("create post error:", error);
+    },
   });
 }
 export default useCreatePost;

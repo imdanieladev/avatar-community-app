@@ -27,6 +27,7 @@ export default function PostWriteScreen() {
   });
 
   const onSubmit = (formValues: FormValues) => {
+    console.log("submit post form:", formValues);
     createPost.mutate(formValues);
   };
 
