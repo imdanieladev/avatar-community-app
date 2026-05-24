@@ -16,6 +16,7 @@
     "@babel/template": "^7.25.0",
     "@babel/traverse": "^7.25.0",
     "@babel/types": "^7.25.0",
+    "@expo/react-native-action-sheet": "^4.1.1",
     "@expo/vector-icons": "^15.0.3",
     "@react-navigation/bottom-tabs": "^7.4.0",
     "@react-navigation/elements": "^2.6.3",
