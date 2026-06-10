@@ -11,9 +11,10 @@ import Profile from "./Profile";
 
 interface FeedItemProps {
   post: Post;
+  isDetail?: boolean;
 }
 
-function FeedItem({ post }: FeedItemProps) {
+function FeedItem({ post, isDetail = false }: FeedItemProps) {
   const { auth } = useAuth();
   const likeUsers = post.likes?.map((like) => Number(like.userId));
   const isLiked = likeUsers?.includes(Number(auth.id));
@@ -24,11 +25,10 @@ function FeedItem({ post }: FeedItemProps) {
     const options = ["Delete", "Edit", "Cancel"];
     const cancelButtonIndex = 2;
     const destructiveButtonIndex = 0;
+
     showActionSheetWithOptions(
       { options, cancelButtonIndex, destructiveButtonIndex },
       (selectedIndex?: number) => {
-        console.log("selectedIndex:", selectedIndex);
-
         switch (selectedIndex) {
           case destructiveButtonIndex:
             deletePost.mutate(post.id);
@@ -45,8 +45,16 @@ function FeedItem({ post }: FeedItemProps) {
     );
   };
 
+  const handlePressFeed = () => {
+    if (!isDetail) {
+      router.push(`/post/${post.id}`);
+    }
+  };
+
+  const ContainerComponent = isDetail ? View : Pressable;
+
   return (
-    <View style={Styles.container}>
+    <ContainerComponent style={Styles.container} onPress={handlePressFeed}>
       <View style={Styles.contentContainer}>
         <Profile
           imageUri={post.author.imageUri}
@@ -93,7 +101,7 @@ function FeedItem({ post }: FeedItemProps) {
           <Text style={Styles.menuText}>{post.viewCount}</Text>
         </Pressable>
       </View>
-    </View>
+    </ContainerComponent>
   );
 }
 const Styles = StyleSheet.create({
